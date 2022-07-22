@@ -49,6 +49,7 @@ then:
 
 and that should work. 
 
-.. note::
+Note
+^^^^
 
-   the input.inp files can be seen as a template to relax the structures. This is basically what we need to perform Geo_Opt in Young.
+The **input.inp** file can be seen as a template to relax the structures. This is basically what we need to perform Geo_Opt in Young.
