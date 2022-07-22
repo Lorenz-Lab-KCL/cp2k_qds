@@ -5,7 +5,7 @@
 #$ -pe mpi 120
 # Set up the job array. In this instance we have requested 10 tasks
 # numbered 1 to 10.
-#$ -t 1-25
+#$ -t 1-15
 # Set the name of the job.
 #$ -N MyArrayJob
 #$ -A KCL_Lorenz
