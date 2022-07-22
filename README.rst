@@ -17,11 +17,22 @@ How to compute these structures:
 
 .. code-block:: bash
 
-   [~] git clone https://github.com/Lorenz-Lab-KCL/cp2k_qds.git
+   git clone https://github.com/Lorenz-Lab-KCL/cp2k_qds.git
+ 
+Then, a small folder reorganization is needed via:
 
-you need to erase, the bibliography, .rst file. Only the **InP111** folder is needed.
+.. code-block:: bash
 
-2. To submit the calculations, two steps must be carried out. First, within the **job_array.sh** file the following action needs to be
+   [~] cd cp2k_qds
+   [~] rm -r bibliography/ InP_Kurf_WP.odt README.rst
+
+2. Change to the directory where the structures are stored:
+
+.. code-block:: bash
+
+   [~] cd relaxed_structures/InP111/
+
+3. To submit the calculations, two steps must be carried out. First, within the **job_array.sh** file the following action needs to be
 carried out:
 
 .. code-block:: bash
@@ -30,11 +41,14 @@ carried out:
    
 To ensure you are using your **MCC budget** project.
 
-3. To submit this job, you just need to follow these steps:
+then:
 
 .. code-block:: bash
-
-   [~] cd cp2k_qds/InP_111
+ 
    [~] qsub job_array.sh
-   
+
 and that should work. 
+
+.. note::
+
+   the input.inp files can be seen as a template to relax the structures. This is basically what we need to perform Geo_Opt in Young.
