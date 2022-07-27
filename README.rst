@@ -58,13 +58,17 @@ Restarting calculations automatically
 ===========================================
 
 4. After the first round of calculations, it is possible that not all structures have been succesfully relaxed. To automatically change the 
-failed jobs, the script restart.sh can be used. This script needs to be placed where all folders with the calculations are stored. Then, you can
-type this:
+failed jobs, the script **restarting_failed.sh** can be used. This script needs to be placed where all folders with the calculations are stored. 
+Then, you can type this:
 
 .. code-block:: bash
 
    [~] chmod +x restart.sh
-   [~] ./restart.sh
+   [~] ./restarting_failed.sh
 
 
+Once this is performed, a second file called **new_job_array.sh** will appear and this is the one that needs to be used in the following way:
 
+.. code-block:: bash
+
+   [~] qubs new_job_array.sh
