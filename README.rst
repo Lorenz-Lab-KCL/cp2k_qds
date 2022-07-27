@@ -67,7 +67,8 @@ Then, you can type this:
    [~] ./restarting_failed.sh
 
 
-Once this is performed, a second file called **new_job_array.sh** will appear and this is the one that needs to be used in the following way:
+Once this is performed, a second file called **new_job_array.sh** needs to be added into this directory. This is the one that needs to be used 
+to carry out a new arra job calculation in Young as displayed here:
 
 .. code-block:: bash
 
