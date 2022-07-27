@@ -53,3 +53,18 @@ Note
 ^^^^
 
 The **input.inp** file can be seen as a template to relax the structures. This is basically what we need to perform Geo_Opt in Young.
+
+Restarting calculations automatically
+===========================================
+
+4. After the first round of calculations, it is possible that not all structures have been succesfully relaxed. To automatically change the 
+failed jobs, the script restart.sh can be used. This script needs to be placed where all folders with the calculations are stored. Then, you can
+type this:
+
+.. code-block:: bash
+
+   [~] chmod +x restart.sh
+   [~] ./restart.sh
+
+
+
