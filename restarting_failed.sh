@@ -1,4 +1,4 @@
-#
+#!/bin/bash -l
 
 convergence() {
     isInFile=$(cat $1 | grep -c 'GEOMETRY OPTIMIZATION COMPLETED')
