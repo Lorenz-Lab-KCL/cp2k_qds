@@ -9,10 +9,10 @@
 # Set the name of the job.
 #$ -N MyArrayJob
 #$ -A KCL_Lorenz
-#$ -P 
-#$ -cwd 
+#$ -P Free
+#$ -cwd
 
-# Loading needed modules
+#Loading needed modules
 module purge
 module load gerun
 module load gcc-libs
@@ -20,12 +20,9 @@ module load compilers/gnu/4.9.2
 module load mpi/openmpi/3.1.4/gnu-4.9.2
 module load openblas/0.3.7-openmp/gnu-4.9.2
 module load cp2k/7.1/ompi/gnu-4.9.2
-
-# Creating the list. Directories to be looped must be present in the same
-# folders as this script is launched.
-find . -type d | sort -V | tail -n +2 > list_folders.tmp
-
-# Proceeding with the calculations
-INFILE=`sed -n "${SGE_TASK_ID}p" list_folders.tmp`
+# Creating the list. Directories to be looped must be present in the same"
+INFILE=`sed -n "${SGE_TASK_ID}p" normal_settings.tmp`
 cd $INFILE
 gerun cp2k.popt -inp input.inp > output.out
+
+
