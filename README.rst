@@ -1,4 +1,45 @@
+Instructions for Francesca:
+===============================
 
+The main aim of this section is to help you to set-up your first highthroughput calculations using Young. To do so, we need to perform the following
+steps. 
+
+1. Log-in into **Young**: 
+
+.. code-block:: bash
+  
+   [~] ssh mmmXXXX@young.rc.ucl.ac.uk
+
+2. Download this repo in **Young**:
+
+.. code-block:: bash
+
+   [~] git clone https://github.com/Lorenz-Lab-KCL/cp2k_qds.git
+
+3. Folder reorganization:
+
+.. code-block:: bash
+
+   [~] cd cp2k_qds
+   [~] rm -r bibliography/ InP_Kurf_WP.odt README.rst 
+   
+   
+4. Run the calculations:
+
+.. code-block:: bash
+
+   [~] cd 
+   [~] qsub job_array.sh
+   
+5. Control the calculations: For the next week, you can control the status of the calculations (at least twice per day)
+   by typping:
+   
+ .. code-block:: bash
+
+   [~] qsub -u mmmXXXXX
+   
+When the first 25 calculations finishes, please contact me, and I can show you how to submit the other ones. For the moment, 
+this is the first task in your KURF project. Any questions, please just slack us!
 
 
 Introduction to CP2k using InP Quantum Dots
