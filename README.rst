@@ -21,14 +21,13 @@ steps.
 .. code-block:: bash
 
    [~] cd cp2k_qds
-   [~] rm -r bibliography/ InP_Kurf_WP.odt README.rst 
-   
+   rm -r inputs_cp2k/ new_structures/ relaxed_structures/ new_array_job.sh README.rst restarting_failed.sh InP_Kurf_WP.* bibliography/
    
 4. Run the calculations:
 
 .. code-block:: bash
 
-   [~] cd 
+   [~] cd kurf_structures/InP001/
    [~] qsub job_array.sh
    
 5. Control the calculations: For the next week, you can control the status of the calculations (at least twice per day)
