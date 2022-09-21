@@ -67,13 +67,27 @@ This will indicate the instant temperature and the average temperature.
 Restart:
 =========
 
-After the first round is finished. We need to change the **input.inp** file to enable the restart option. To do so, you need to create a new folder
-called **0.1** inside the folder where the first AIMD calculation was performed. Then afterwards, I need that you copy **3** files into the folder 
-**0.1**:
+After the first round is finished. We need to change the **input.inp** file and grep the last geometry from the MD run to enable the restart option. To 
+do so, you need to create a new folder called **0.1** inside the folder where the first AIMD calculation was performed. 
+
+.. code-block:: bash
+
+   [~] mkdir 0.1
+
+The last geometry can be obtained via greping the trajectory file, which is done in this way:
+
+.. code-block:: bash
+
+   [~] grep -A 408 InP-ram-pos-1.xyz > last.xyz
+    
+The 408 is the number of atoms plus two spaces to print completely the last relaxed geometry. 
+
+Then afterwards, I need that you copy **4** files into the folder **0.1**:
 
 1. job.sh
 2. input.inp
-3. InP-ram-RESTART.wfn.bak-BIGGEST NUMBER
+3. last.xyz
+4. InP-ram-RESTART.wfn.bak-BIGGEST NUMBER
 
 The third one **needs** to be the one with the biggest number after the **-bak-** suffix. Inside the **0.1** folder, you can rename it as:
 
@@ -87,10 +101,24 @@ The last step is to remove the **.bak-NUMBER** and leave it with a plain .wfn na
 
 Once this is done, you can open it with a text editor the **input.inp** file, and uncomment the following lines:
 
+.. code-block:: bash
 
+   &ext_restart
+    restart_file_name InP-ram-1.restart
+   &end ext_restart
 
+Once this is done, please check that the name of the restart_file is the same as the one we have in the folder. If not you can change it. This is the 
+most important part for restarting and AIMD (this is the last converged wavefunction at that temperature).
 
+Finally:
 
+.. code-block:: bash
+
+   [~] sbatch job.sh
+   
+and this is the way to restart a job. Everytime that the cpu-wall-time finished, we need to do the same steps, except changing the **input.inp**.
+You can keep the record as 0.1, 0.2, 0.3 and so on. In the end, if we follow this numenclature, we can join all the trjectories and obtained the final
+one. 
 
 
 
