@@ -96,6 +96,7 @@ The third one **needs** to be the one with the biggest number after the **-bak-*
    [~] mv InP-ram-RESTART.wfn.bak-BIGGEST NUMBER 0.1
    [~] cd 0.1
    [~] mv InP-ram-RESTART.wfn.bak-BIGGEST InP-ram-RESTART.wfn
+   [~] mv last.xyz mol.xyz
 
 The last step is to remove the **.bak-NUMBER** and leave it with a plain .wfn name. 
 
