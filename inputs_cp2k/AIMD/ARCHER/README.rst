@@ -67,6 +67,30 @@ This will indicate the instant temperature and the average temperature.
 Restart:
 =========
 
-After the first round is finished. We need to change the **input.inp** file to enable the restart option. 
+After the first round is finished. We need to change the **input.inp** file to enable the restart option. To do so, you need to create a new folder
+called **0.1** inside the folder where the first AIMD calculation was performed. Then afterwards, I need that you copy **3** files into the folder 
+**0.1**:
+
+1. job.sh
+2. input.inp
+3. InP-ram-RESTART.wfn.bak-BIGGEST NUMBER
+
+The third one **needs** to be the one with the biggest number after the **-bak-** suffix. Inside the **0.1** folder, you can rename it as:
+
+.. code-block:: bash
+
+   [~] mv InP-ram-RESTART.wfn.bak-BIGGEST NUMBER 0.1
+   [~] cd 0.1
+   [~] mv InP-ram-RESTART.wfn.bak-BIGGEST InP-ram-RESTART.wfn
+
+The last step is to remove the **.bak-NUMBER** and leave it with a plain .wfn name. 
+
+Once this is done, you can open it with a text editor the **input.inp** file, and uncomment the following lines:
+
+
+
+
+
+
 
 
