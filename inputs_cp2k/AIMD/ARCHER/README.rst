@@ -67,6 +67,6 @@ This will indicate the instant temperature and the average temperature.
 Restart:
 =========
 
-Ask me when the job stopped due to wall time and I need to explain to you a bit more how to do it. 
+After the first round is finished. We need to change the **input.inp** file to enable the restart option. 
 
 
