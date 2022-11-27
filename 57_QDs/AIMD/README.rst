@@ -1,4 +1,4 @@
-AIMD for MAgic InP_QDs
+AIMD for Magic InP_QDs
 =========================
 
 
