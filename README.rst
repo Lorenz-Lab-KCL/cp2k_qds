@@ -1,6 +1,3 @@
-
-
-
 Introduction to CP2k using InP Quantum Dots
 ==============================================
 
