@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=InP_bulk
-#SBATCH --nodes=1
-#SBATCH --tasks-per-node=128
+#SBATCH --nodes=10
+#SBATCH --ntasks-per-node=128
 #SBATCH --cpus-per-task=1
 #SBATCH --time=24:00:00
 #SBATCH --account=e05-biosoft-lor
@@ -19,4 +19,14 @@ module load cp2k/cp2k-9.1
 export OMP_NUM_THREADS=1
 export OMP_PLACES=cores
 
-srun --hint=nomultithread --distribution=block:block cp2k.popt -i input.inp > output.out
+find . -type d | sort -V | tail -n +2 > list_folders.tmp
+
+# Proceeding with the calculations
+
+for i in $(cat list_folders.tmp)
+do
+# Launch this subjob on 1 node, note nodes and ntasks options and & to place subjob in the background
+    srun --nodes=1 --ntasks=128 --distribution=block:block --hint=nomultithread cp2k.popt -i $i/input.inp > $i/output.out &
+done
+# Wait for all background subjobs to finish
+wait
